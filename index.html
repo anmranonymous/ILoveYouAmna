@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Amna ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    height: 100vh;
+    overflow: hidden;
+    background: linear-gradient(135deg, #0f2027, #2c5364);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+/* Glass Card */
+.card {
+    width: 90%;
+    max-width: 600px;
+    padding: 30px;
+    border-radius: 20px;
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(15px);
+    box-shadow: 0 0 40px rgba(255, 77, 109, 0.4);
+    text-align: center;
+    animation: fadeIn 2s ease;
+}
+
+/* Title */
+h1 {
+    font-size: 2.5em;
+    margin-bottom: 15px;
+    color: #ff758c;
+}
+
+/* Typing text */
+#text {
+    font-size: 1.1em;
+    line-height: 1.7;
+    min-height: 150px;
+}
+
+/* Button */
+button {
+    margin-top: 20px;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 30px;
+    background: #ff4d6d;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: scale(1.1);
+}
+
+/* Hidden Message */
+#loveMsg {
+    display: none;
+    margin-top: 20px;
+    font-size: 1.3em;
+    color: #ffd1dc;
+}
+
+/* Floating */
+.float {
+    position: absolute;
+    top: -10px;
+    font-size: 20px;
+    animation: fall linear infinite;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(110vh);
+        opacity: 0;
+    }
+}
+
+@keyframes fadeIn {
+    from {opacity:0; transform:translateY(30px);}
+    to {opacity:1; transform:translateY(0);}
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="card">
+    <h1>❤️ Amna, Ti Amo ❤️</h1>
+
+    <div id="text"></div>
+
+    <button onclick="showLove()">Apri il mio cuore 💌</button>
+
+    <div id="loveMsg">
+        💖 TI AMO AMNA 💖 <br><br>
+        Sei il mio sogno, la mia felicità, il mio cuore ❤️  
+        Non sei solo importante… sei tutto per me 🌍
+    </div>
+</div>
+
+<!-- Background Music -->
+<audio autoplay loop>
+    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+// Typing Effect
+const message = `Amna, ogni giorno penso a te...
+
+Non sei solo una persona nella mia vita,
+sei un'emozione che non riesco a spiegare.
+
+Anche se siamo lontani, ti sento sempre vicina al mio cuore.
+Il tuo sorriso illumina il mio mondo.
+
+Forse non sono perfetto,
+ma quello che provo per te è reale, sincero e profondo.
+
+Vorrei essere lì con te,
+guardarti negli occhi e dirti tutto questo...
+
+Amna... sei speciale.
+Più di quanto immagini.
+
+Ti amo ❤️`;
+
+let i = 0;
+function type() {
+    if (i < message.length) {
+        document.getElementById("text").innerHTML += message.charAt(i);
+        i++;
+        setTimeout(type, 40);
+    }
+}
+type();
+
+// Show message
+function showLove() {
+    document.getElementById("loveMsg").style.display = "block";
+}
+
+// Floating flowers/hearts
+setInterval(() => {
+    let el = document.createElement("div");
+    el.classList.add("float");
+
+    let items = ["🌸","💖","🌹","✨"];
+    el.innerHTML = items[Math.floor(Math.random()*items.length)];
+
+    el.style.left = Math.random() * 100 + "vw";
+    el.style.animationDuration = (Math.random()*3 + 3) + "s";
+
+    document.body.appendChild(el);
+
+    setTimeout(() => el.remove(), 6000);
+}, 200);
+</script>
+
+</body>
+      </html>
